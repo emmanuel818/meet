@@ -88,6 +88,7 @@
         });
     };
 
+    // -- STEP 3
     const getEvents = document.getElementById("getEvents");
     const events = document.getElementById("events");
     const getCalendarEvents = "https://e4y1c6svnd.execute-api.eu-central-1.amazonaws.com/dev/api/get-events";
@@ -103,6 +104,7 @@
           events.innerText = JSON.stringify(json, null, 2);
         });
     };
+      // -- END OF STEP 3
 
   </script>
 </body>
