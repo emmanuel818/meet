@@ -84,7 +84,7 @@ export const getAccesToken = async () => {
       const { authUrl } = results.data;
       return (window.location.href = authUrl);
     }
-    return code && getAccesToken(code);
+    return code && getToken(code);
   }
   return accessToken
 }
