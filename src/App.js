@@ -14,7 +14,7 @@ class App extends Component {
     currentLocation: 'all',
   }
 
-  updateEvents = async (location, numberOfEvents) => {
+  updateEvents = async (location, eventCount) => {
     getEvents().then((events) => {
       const locationEvents = (location === 'all') ?
         events :
