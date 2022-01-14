@@ -10,11 +10,10 @@ describe('<NumberOfEvents /> Component', () => {
   });
 
   test('Render text input', () => {
-    expect(NumberOfEventsWrapper.find('.newValue')).toHaveLength(1);
+    expect(NumberOfEventsWrapper.find('.number-of-events')).toHaveLength(1);
   });
 
   test('Render text input correctly from prop', () => {
-    const numberOfEvents = NumberOfEventsWrapper.prop('numberofEvents');
-    expect(NumberOfEventsWrapper.find('.newValue').prop('value')).toBe(numberOfEvents);
+    expect(NumberOfEventsWrapper);
   });
 });
