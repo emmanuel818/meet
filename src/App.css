@@ -267,6 +267,9 @@ ul.EventList {
     display: inline-block;
     align-items: center;
   }
+  .event {
+    width: 200px;
+  }
 }
 
 @media all and (max-width: 768px) {
