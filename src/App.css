@@ -290,22 +290,3 @@ ul.EventList {
     align-items: center;
   }
 }
-
-@media all and (max-width: 769px) {
-  ul.EventList {
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap:10px;
-    margin-top: 50px;
-    margin-right: 50%;
-    margin-left: 50%;
-  }
-  .number-of-events {
-    display: inline-block;
-    align-items: center;
-  }
-  .city {
-    display: inline-block;
-    align-items: center;
-  }
-}
