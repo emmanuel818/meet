@@ -250,7 +250,7 @@ ul.EventList {
   width:60px;
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 500px) {
   ul.EventList {
     grid-template-columns: 1fr;
     grid-gap:20px;
