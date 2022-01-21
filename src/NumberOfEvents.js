@@ -13,7 +13,7 @@ class NumberOfEvents extends Component {
           value={this.props.numberOfEvents}
           onChange={(e) => this.props.updateNumberOfEvents(e)}
         />
-        <ErrorAlert text={this.props.errorText} />
+        <ErrorAlert className='error-alert' text={this.props.errorText} />
       </div>
     );
   }
