@@ -7,11 +7,16 @@ import NumberOfEvents from './NumberOfEvents';
 import { extractLocations, getEvents } from './api';
 
 class App extends Component {
-  state = {
-    events: [],
-    locations: [],
-    numberOfEvents: 32,
-    currentLocation: 'all',
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      events: [],
+      locations: [],
+      numberOfEvents: 32,
+      currentLocation: 'all',
+      errorText: '',
+    };
   }
 
   updateEvents = async (location, eventCount) => {
