@@ -291,7 +291,7 @@ ul.EventList {
   }
 }
 
-@media all and (max-width: 1024px) {
+@media all and (min-width: 992px) {
   ul.EventList {
     display:grid;
     grid-template-columns: 1fr 1fr;
@@ -309,6 +309,29 @@ ul.EventList {
     align-items: center;
   }
   .event {
-    width: 350px;
+    width: 400px;
+  }
+}
+
+
+@media all and (min-width: 1024px) {
+  ul.EventList {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:20px;
+    margin-top: 50px;
+    margin-right: 50%;
+    margin-left: 50%;
+  }
+  .number-of-events {
+    display: inline-block;
+    align-items: center;
+  }
+  .city {
+    display: inline-block;
+    align-items: center;
+  }
+  .event {
+    width: 450px;
   }
 }
