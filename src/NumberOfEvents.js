@@ -5,12 +5,14 @@ class NumberOfEvents extends Component {
   render() {
     return (
       <div className="NumberOfEvents">
-        <input
-          type="number"
-          className="number-of-events"
-          value={this.props.numberOfEvents}
-          onChange={(e) => this.props.updateNumberOfEvents(e)}
-        />
+        <label>Number of Events:
+          <input
+            type="number"
+            className="number-of-events"
+            value={this.props.numberOfEvents}
+            onChange={(e) => this.props.updateNumberOfEvents(e)}
+          />
+        </label>
       </div>
     );
   }
