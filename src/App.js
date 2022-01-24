@@ -14,10 +14,10 @@ class App extends Component {
     this.state = {
       events: [],
       locations: [],
-      showWelcomeScreen: undefined,
       numberOfEvents: 32,
       currentLocation: 'all',
       errorText: '',
+      showWelcomeScreen: undefined,
     };
   }
 
