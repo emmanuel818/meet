@@ -45,7 +45,7 @@ const getToken = async (code) => {
 }
 
 
-export const getEvents = async (events) => {
+export const getEvents = async () => {
   NProgress.start();
 
   if (window.location.href.startsWith('http://localhost')) {
@@ -56,7 +56,7 @@ export const getEvents = async (events) => {
   if (!navigator.onLine) {
     const data = localStorage.getItem('lastEvents');
     NProgress.done();
-    return data ? JSON.parse(events).events : [];;
+    return data ? JSON.parse(data).events : [];;
   }
 
   const token = await getAccesToken();
