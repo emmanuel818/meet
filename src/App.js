@@ -5,11 +5,12 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import WelcomeScreen from './WelcomeScreen';
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import { extractLocations, getEvents, checkToken, getAccesToken } from './api';
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       events: [],
@@ -18,7 +19,7 @@ class App extends Component {
       numberOfEvents: 32,
       currentLocation: 'all',
       errorText: '',
-    };
+    }
   }
 
   updateEvents = async (location, eventCount) => {
@@ -54,7 +55,7 @@ class App extends Component {
   async componentDidMount() {
     this.mounted = true;
     const accessToken = localStorage.getItem('access_token');
-    const isTokenValid = (checkToken(accessToken)).error ? false :
+    const isTokenValid = (await checkToken(accessToken)).error ? false :
       true;
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get('code');
@@ -72,15 +73,42 @@ class App extends Component {
     this.mounted = false;
   }
 
+  getData = () => {
+    const { locations, events } = this.state;
+    const data = locations.map((location) => {
+      const number = events.filter((event) => event.location === location).length
+      const city = location.split(', ').shift()
+      return { city, number };
+    })
+    return data;
+  };
 
   render() {
     if (this.state.showWelcomeScreen === undefined) return <div className='App' />
+    const { locations, numberOfEvents } = this.state;
 
     return (
       <div className="App">
-        <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
-        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents} errorText={this.state.errorText} />
-        <EventList events={this.state.events} numberOfEvents={this.state.numberOfEvents} />
+        <h1>Meet App</h1>
+        <h4>Choose your nearest City</h4>
+        <CitySearch locations={locations} updateEvents={this.updateEvents} />
+        <NumberOfEvents numberOfEvents={numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents} errorText={this.state.errorText} />
+        <h4>Events in each city</h4>
+        <ScatterChart
+          width={400}
+          height={400}
+          margin={{
+            top: 20, right: 20, bottom: 20, left: 20,
+          }}
+        >
+          <CartesianGrid />
+          <XAxis type="category" dataKey="city" name="city" />
+          <YAxis type="number" dataKey="number" name="number of events" />
+          <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+          <Scatter data={this.getData()} fill="#8884d8" />
+        </ScatterChart>
+
+        <EventList events={this.state.events} numberOfEvents={numberOfEvents} />
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccesToken={() => { getAccesToken() }} />
       </div>
     );
