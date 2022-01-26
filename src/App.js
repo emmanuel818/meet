@@ -4,8 +4,8 @@ import './nprogress.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
-import { extractLocations, getEvents, checkToken, getAccesToken } from './api';
 import WelcomeScreen from './WelcomeScreen';
+import { extractLocations, getEvents, checkToken, getAccesToken } from './api';
 
 class App extends Component {
   constructor(props) {
@@ -14,10 +14,10 @@ class App extends Component {
     this.state = {
       events: [],
       locations: [],
+      showWelcomeScreen: undefined,
       numberOfEvents: 32,
       currentLocation: 'all',
       errorText: '',
-      showWelcomeScreen: undefined,
     };
   }
 
@@ -51,7 +51,7 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.mounted = true;
     const accessToken = localStorage.getItem('access_token');
     const isTokenValid = (checkToken(accessToken)).error ? false :
