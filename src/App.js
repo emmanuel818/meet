@@ -6,7 +6,7 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import WelcomeScreen from './WelcomeScreen';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
-import { extractLocations, getEvents, checkToken, getAccesToken } from './api';
+import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
 
 class App extends Component {
   constructor(props) {
@@ -90,12 +90,12 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Meet App</h1>
-        <h4>Choose your nearest City</h4>
         <CitySearch locations={locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents} errorText={this.state.errorText} />
         <h4>Events in each city</h4>
+
         <ScatterChart
-          width={400}
+          width={800}
           height={400}
           margin={{
             top: 20, right: 20, bottom: 20, left: 20,
@@ -105,11 +105,11 @@ class App extends Component {
           <XAxis type="category" dataKey="city" name="city" />
           <YAxis type="number" dataKey="number" name="number of events" />
           <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-          <Scatter data={this.getData()} fill="#8884d8" />
+          <Scatter name="A school" data={this.getData()} fill="#8884d8" />
         </ScatterChart>
 
         <EventList events={this.state.events} numberOfEvents={numberOfEvents} />
-        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccesToken={() => { getAccesToken() }} />
+        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccesToken={() => { getAccessToken() }} />
       </div>
     );
   }

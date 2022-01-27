@@ -59,7 +59,7 @@ export const getEvents = async () => {
     return data ? JSON.parse(data).events : [];;
   }
 
-  const token = await getAccesToken();
+  const token = await getAccessToken();
 
   if (token) {
     removeQuery();
@@ -75,7 +75,7 @@ export const getEvents = async () => {
   }
 };
 
-export const getAccesToken = async () => {
+export const getAccessToken = async () => {
   const accessToken = localStorage.getItem('access_token');
   const tokenCheck = accessToken && (await checkToken(accessToken));
 

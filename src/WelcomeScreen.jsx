@@ -1,5 +1,6 @@
 import React from "react";
 import './WelcomeScreen.css';
+import { getAccessToken } from './api';
 
 function WelcomeScreen(props) {
   return props.showWelcomeScreen ?
@@ -21,7 +22,7 @@ o.svg"
                 alt="Google sign-in"
               />
             </div>
-            <button onClick={() => { props.getAccessToken() }}
+            <button onClick={() => { getAccessToken() }}
               rel="nofollow noopener"
               class="btn-text"
             >
