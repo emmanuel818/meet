@@ -93,7 +93,6 @@ class App extends Component {
         <h1>Meet App</h1>
         <CitySearch locations={locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents} errorText={this.state.errorText} />
-        <h4>Events in each city</h4>
 
         <div className='data-vis-wrapper'>
           <EventGenre events={events} />
