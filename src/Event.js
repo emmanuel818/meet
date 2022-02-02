@@ -19,7 +19,7 @@ class Event extends Component {
     const { collapsed } = this.state;
     return (
       <Card className='event'>
-        <Card.Header className="summary">{event.summary}</Card.Header>
+        <Card.Title className="summary">{event.summary}</Card.Title>
         <Card.Body className="event-body">
           <p className="start-date">
             {event.start.dateTime} ({event.start.timeZone})
