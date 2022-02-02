@@ -259,6 +259,8 @@ input[type="number"] {
 
 .summary {
   text-align: center;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .event-body {
