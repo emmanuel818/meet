@@ -257,11 +257,11 @@ input[type="number"] {
   }
 } 
 
-.summary {
+.summary.card-header {
   text-align: center;
   font-size: 14px;
   font-weight: bold;
-}
+} 
 
 .event-body {
   text-align: center;
